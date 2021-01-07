@@ -1,0 +1,131 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+.navTitle {
+    margin-left: 20px;
+  }
+  
+#signInButton {
+    margin-right: 30px;
+}
+  
+.welcome {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+}
+.welcome2 {
+    padding-left: 0;
+    padding-right: 0;
+}
+  
+.welcomeIMG {
+    width: 100%;
+    opacity: 0.5;
+}
+  
+.welcome2IMG {
+    width: 100%;
+    opacity: 1;
+}
+  
+.welomceLabels {
+    font-family: 'Redressed', cursive;
+    text-align: center;
+    position: absolute;
+    background-color: white;
+    //box-shadow: 1px 1px gray;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    //left: -50%;
+    transform: translate(-50%, -50%);
+}
+
+
+  
+.firstBody {
+    margin-top: 50px;
+    text-align: center;
+    line-height: 2em;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+  
+.secondBody {
+    margin-top: 50px;
+    text-align: center;
+    line-height: 2em;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+  
+.socials {
+    display: inline;
+}
+  
+.socialLink {
+    width: 40px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.copyright {
+    padding-top: 20px;
+}
+.signIn {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+  
+.calasa {
+    text-align: center;
+}
+.calasaIMG {
+    width: 50%;
+    margin-bottom: 50px;
+}
+  
+.inverse {
+    background-color: white;
+    color: #d9534f !important;
+    border: 1px solid #d9534f;
+}
+
+.registerBody {
+    background-color: #393e46;
+}
+
+.registerForm {
+    padding-top: 10%;
+    padding-right: 25%;
+    padding-left: 25%;
+}
+
+.register-calasa {
+    text-align: center;
+}
+.labelField {
+    color: white;
+}
+.inputField {
+    height: 50px;
+}
+
+.oskiIMG {
+    width: 50%;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+}
+
+  
