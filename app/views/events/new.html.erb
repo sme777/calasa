@@ -43,7 +43,7 @@
 
       </div>
     </nav>
-    <div class="container">
+    <!-- <div class="container">
       <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Event Title</label>
           <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Time to Party">
@@ -54,6 +54,30 @@
       </div>
 
       <button type="button" class="btn btn-outline-dark btn-lg w-100">Create</button>
-    </div>
+    </div> -->
+
+
+
+
+    <%= form_with(model: @event, local: true) do |f| %>
+
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Event Title</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Time to Party">
+      </div>
+      <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Event Description</label>
+          <textarea class="event-description form-control" id="exampleFormControlTextarea1" rows="3" placeholder="When should we start?"></textarea>
+      </div>
+
+
+      <%= f.label "Event Image" %>
+      <%= f.file_field :image, class: "btn btn-danger" %>
+
+      <button type="button" class="btn btn-outline-dark btn-lg w-100">Create</button>
+      
+
+
+    <% end %>
 </body>
 </html>
