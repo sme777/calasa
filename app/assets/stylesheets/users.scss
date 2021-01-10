@@ -14,6 +14,11 @@
 #signInButton {
     margin-right: 30px;
 }
+
+#signOutButton {
+    margin-right: 30px;
+}
+
   
 .welcome {
     position: relative;
@@ -106,7 +111,7 @@
 }
 
 .registerForm {
-    padding-top: 10%;
+    padding-top: 5%;
     padding-right: 25%;
     padding-left: 25%;
 }
@@ -122,10 +127,55 @@
 }
 
 .oskiIMG {
-    width: 50%;
+    width: 30%;
     margin-bottom: 50px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 8px;
 }
+
+.execBody {
+    // margin-left: 5%;
+    // margin-right: 5%;
+}
+
+.execHeader {
+    text-align: center;
+}
+.execRow {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.exec-image {
+    border-radius: 50%;
+    width: 60%;
+}
+
+.execAnchor {
+    text-decoration: none;
+}
+
+.mainChairName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.mainChairTitle {
+    font-family: 'Cardo', serif;
+}
+
+.coChairName {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+.coChairTitle {
+    font-family: 'Cardo', serif;
+}
+
+.execSubs {
+    margin-top: 3%;
+}
+
 
   

@@ -13,6 +13,7 @@
     
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'signin', 'data-turbolinks-track': 'reload' %>
+    
 </head>
 <body>
 
@@ -51,22 +52,23 @@
     <div class="container">
 
         
-        <form class="signIn form-signin">
+        <form action="/signin" class="signIn form-signin" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <div class="calasa">
                 <img class="calasaIMG" src="assets/calasa.jpg" alt="">
             </div>
             
             <div class="form-floating mb-4">
-                <input class="form-control" id="inputUsername" type="text" placeholder="Username" aria-label="Username">
-                <label  for="inputUsername">Username</label>
+                <input class="form-control" id="inputEmail" type="text" placeholder="Email" aria-label="Email" name="login[email]">
+                <label  for="inputEmail">Email</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input class="form-control" id="inputPassword" type="text" placeholder="Password" aria-label="Password">
+                <input class="form-control" id="inputPassword" type="password" placeholder="Password" aria-label="Password" name="login[password]">
                 <label for="inputPassword">Password</label>
             </div>
             
-            <button class="w-100 btn btn-lg btn-danger" id="logInButton" type="submit">Sign In</button>
+            <button class="w-100 btn btn-lg btn-danger antihover" id="logInButton" type="submit">Sign In</button>
             
         </form>
     </div>

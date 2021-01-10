@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#logInButton').hover(function() {
+    $('.antihover').hover(function() {
         
         $(this).addClass('inverse');
         $(this).removeClass('btn-danger');

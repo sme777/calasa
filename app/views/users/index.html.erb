@@ -9,7 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'signin', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
 
@@ -39,7 +42,13 @@
             </div>
           </li>
         </ul>
-        <a class="btn btn-outline-danger" id="signInButton" href="/signin">Sign In</a> 
+        <% if logged_in? %>
+          <a class="btn btn-danger" id="signOutButton" href="/signout">Sign Out</a> 
+        <% end %>
+
+        <% if not_logged_in? %>
+          <a class="btn btn-outline-danger" id="signInButton" href="/signin">Sign In</a> 
+        <% end %>
       </div>
     </nav>
     
@@ -151,6 +160,104 @@
              these matters to this principle of selection: he rejects pleasures to secure other
               greater pleasures, or else he endures pains to avoid worse pains.</p>
   </div>
+
+
+  <hr class="my-5">
+  <div class="execBody container">
+      <div class="execHeader">
+          <h1>Meet our Exec</h1>
+      </div>
+      
+      <div class="execRow row">
+          <div class="col-md-4">
+              <%= link_to image_tag("marinor", class: "exec-image")%>
+              <div class="execSubs">
+                  <h4 class="mainChairName">Marinor Balouzian</h4>
+                  <h5 class="mainChairTitle">President</h5>
+              </div>
+
+          </div>
+          <div class="col-md-4">
+              <%= link_to image_tag("sosse", class: "exec-image")%>
+              <div class="execSubs">
+                  <h4 class="mainChairName">Sosse Krikorian</h4>
+                  <h5 class="mainChairTitle">Vice-President</h5>
+              </div>
+
+          </div>
+          <div class="col-md-4">
+              <%= link_to image_tag("samson", class: "exec-image")%>
+              <div class="execSubs">
+                  <a class="execAnchor" href="https://sme777.github.io/homepage/"><h4 class="mainChairName">Samson Petrosyan</h4></a>
+                  <h5 class="mainChairTitle">Social Chair</h5>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="execRow row">
+          <div class="col-md-4">
+              <%= link_to image_tag("anna", class: "exec-image")%>
+              <div class="execSubs">
+                  <h4 class="mainChairName">Anna Vardapetyan</h4>
+                  <h5 class="mainChairTitle">Secretary</h5>
+              </div>
+
+          </div>
+          <div class="col-md-4">
+              <%= link_to image_tag("aleen", class: "exec-image")%>
+              <div class="execSubs">
+                  <h4 class="mainChairName">Aleen Kuyumjian</h4>
+                  <h5 class="mainChairTitle">Treasurer</h5>
+              </div>
+
+          </div>
+          <div class="col-md-4">
+              <%= link_to image_tag("arman", class: "exec-image")%>
+              <div class="execSubs">
+                  <h4 class="mainChairName">Arman Ter-Petrosyan</h4>
+                  <h5 class="mainChairTitle">Cultural Chair</h5>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="execRow row">
+          <div class="col-md-3">
+              <%= link_to image_tag("michael", class: "exec-image")%>
+              <div class="execSubs">
+                  <h5 class="coChairName">Michael Khachatrian</h5>
+                  <h6 class="coChairTitle">Co-Social Chair</h6>
+              </div>
+
+          </div>
+          <div class="col-md-3">
+              <%= link_to image_tag("anya", class: "exec-image")%>
+              <div class="execSubs">
+                  <h5 class="coChairName">Anya Vertanessian</h5>
+                  <h6 class="coChairTitle">Co-Cultural Chair</h6>
+              </div>
+
+          </div>
+          <div class="col-md-3">
+              <%= link_to image_tag("julia", class: "exec-image")%>
+              <div class="execSubs">
+                  <h5 class="coChairName">Julia Sarieva</h5>
+                  <h6 class="coChairTitle">Co-Social Chair</h6>
+              </div>
+
+          </div>
+          <div class="col-md-3">
+              <%= link_to image_tag("areni", class: "exec-image")%>
+              <div class="execSubs">
+                  <h5 class="coChairName">Areni Chorbajian</h5>
+                  <h6 class="coChairTitle">Co-Cultural Chair</h6>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
   <hr class="my-4">
   <div class="foot container">
     <div class="ending footer-copyright text-center py-3">

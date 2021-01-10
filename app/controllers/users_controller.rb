@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
     def index
-
-    end
-
-    def signin
-        
+        # if session[:user_id] != nil
+        #     redirect_to '/', notice: "You have successfully signed in."
+        # end
     end
 
     def register
@@ -13,22 +11,23 @@ class UsersController < ApplicationController
 
     def create
 
-        pass = passwords[:password]
-        confirmation = passwords[:confirm_password]
-
-        if pass == confirmation
-            user = User.new(user_params)
-            if user.save
-                session[:user_id] = user.id
-                redirect_to '/'
-            else
-                
-            end
+        user = User.new(user_params)
+        if user.save
+            session[:user_id] = user.id
+            redirect_to '/'
         else
-
+            flash[:register_errors] = user.errors.full_messages 
+            redirect_to '/register'
         end
+    end
 
 
+    def is_logged?
+        session[:user_id] != nil
+    end
+
+    def is_not_logged?
+        session[:user_id] == nil
     end
 
 
@@ -37,7 +36,4 @@ class UsersController < ApplicationController
             params.require(:user).permit(:name, :email, :password)
         end
 
-        def passwords
-            params.require(:user).permit(:password, :confirm_password)
-        end
 end
