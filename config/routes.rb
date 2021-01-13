@@ -12,6 +12,12 @@ Rails.application.routes.draw do
       patch :edit
     end
   end
+
+  resources :fundraisers do
+    member do
+      patch :edit
+    end
+  end
   # get '/events' => 'posts#event'
   
 end
