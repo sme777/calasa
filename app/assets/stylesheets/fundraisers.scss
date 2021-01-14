@@ -1,3 +1,39 @@
 // Place all the styles related to the Fundraisers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.fundraiser-container {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.upload-image {
+    float: right;
+}
+
+.fundraiserIMG {
+    width: 100%;
+}
+
+.fundraiser-each-container {
+    // z-index: 0;
+    margin: 3% 5%;
+}
+
+.fundraiser-each-container a {
+    text-decoration: none !important;
+}
+
+.fundraiser-each-container:hover {
+    background-color: #F8F8F8;
+}
+
+.fundraiser-for-each-container {
+    margin: 3% 5%;
+}
+
+.fundraiser-link {
+    z-index: 10;
+}
+
+.red {
+    color: red;
+}

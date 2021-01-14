@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'fundraiser', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'signin', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
 
@@ -44,78 +44,29 @@
         <% end %>
       </div>
     </nav>
-    <% if logged_in? %>
-      <a href="/fundraisers/new" class="btn btn-outline-dark">New Fundraiser</a>
-    <% end %>
 
-    <% if logged_in? %>
-        <% @fundraisers.each do |fundraiser| %>
-          
-          
-          <div class="card fundraiser-each-container" onclick="location.href='<%= '/fundraisers/' + fundraiser.id.to_s %>'">
-            
-            <div class="row">
-            
-              <div class="col-md-7 px-3">
-                <div class="event-details card-block px-6">
+    <div class="fundraiser-container container">
+      <%= form_with(model: @fundraiser, method: :post, local: true) do |f| %>
+     
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Fundraiser Title</label>
+            <%= f.text_field :title, class: "form-control", placeholder: "Awareness Cause"%>
+            <!-- <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Awareness Cause"> -->
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Fundraiser Description</label>
+            <%= f.text_area :description, size: "60x10", class: "event-description form-control", placeholder: "What is our goal?" %>
+            <!-- <textarea class="event-description form-control" id="exampleFormControlTextarea1" rows="3" placeholder="What is our goal?"></textarea> -->
+        </div>
 
-                  <h4 class="card-title"><%= fundraiser.title %></h4>
-                  <!-- <h4 class="card-title">First General Meeting Fall – Fall 2020</h4> -->
-                  <p class="card-text"> 
-                      <%= fundraiser.description %>
-                  </p>
-                  <br>
-                  <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-dark btn-lg donate">Donate</a>
-                  <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-light btn-lg share">Share</a>
-                </div>
-                <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
-              </div>
-              
-              <div class="fund-pic-container col-md-5">
-
-                  <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
-              </div>
-            </div>
-            
-          </div>
-          
+        <div>
+          <%= f.label "Fundraiser Image" %>
+          <%= f.file_field :images, multiple: true, class: "upload-image btn"%>
+        </div>
+        <%= f.submit "Create", class: "btn btn-outline-dark btn-lg w-100" %>
         
       <% end %>
-    <% end %>
-
-    <% if not_logged_in? %>
-    <% @fundraisers.each do |fundraiser| %>
-        
-        <div class="card fundraiser-for-each-container">
-          <div class="row ">
-            <div class="col-md-7 px-3">
-              <div class="event-details card-block px-6">
-                <h4 class="card-title"><%= fundraiser.title %></h4>
-                <!-- <h4 class="card-title">First General Meeting Fall – Fall 2020</h4> -->
-                <p class="card-text"> 
-                    <%= fundraiser.description %>
-                </p>
-                <br>
-                <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-dark btn-lg donate">Donate</a>
-                <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-light btn-lg share">Share</a>
-              </div>
-              <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
-            </div>
-            <div class="fund-pic-container col-md-5">
-                <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
-            </div>
-          </div>
-              
-        </div>
-        
-    <% end %>
-    <% end %>
-    
-
-    
-
-
-
+    </div>
     <hr class="my-4">
     <div class="signInFooter container">
       <div class="footer-copyright text-center py-3">
