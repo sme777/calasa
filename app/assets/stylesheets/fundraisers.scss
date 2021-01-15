@@ -34,6 +34,61 @@
     z-index: 10;
 }
 
-.red {
-    color: red;
+
+.donation-group {
+    margin-bottom: 3%;
 }
+
+.sharing-group {
+    margin-bottom: 3%;
+}
+
+.sharing-buttons {
+    text-align: center;
+}
+
+.donate {
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.share {
+    margin-right: 2%;
+    margin-left: 2%;
+    border-width: 1px;
+    border-color: black;
+}
+
+.share:hover {
+    border-width: 1px;
+    border-color: black;
+}
+
+.back-container {
+    margin-top: 3%;
+    font-size: 22px;
+}
+
+.back-anchor {
+    text-decoration: none;
+}
+
+.edit-btn {
+    float: right;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+}
+
+.delete-btn {
+    float: right;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+}
+
+#footer {
+    clear: both;
+ }
+
+

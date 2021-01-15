@@ -65,16 +65,25 @@
                       <%= fundraiser.description %>
                   </p>
                   <br>
-                  <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-dark btn-lg donate">Donate</a>
-                  <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-light btn-lg share">Share</a>
+                  <div class="sharing-buttons">
+                      <a href="<%= fundraiser.donate %>" class="btn btn-dark btn-lg donate">Donate</a>
+                      <a href="<%= fundraiser.share %>" class="btn btn-light btn-lg share">Share</a>
+                  </div>
                 </div>
                 <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
               </div>
               
-              <div class="fund-pic-container col-md-5">
 
-                  <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
-              </div>
+              <% if fundraiser.image.attached? %>
+                  <div class="fund-pic-container col-md-5">
+                      <%= image_tag(fundraiser.image, class: "fundraiserIMG") %>
+                  </div>
+              <% else %>
+                  <div class="fund-pic-container col-md-5">
+                      <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+                  </div>
+              <% end %>
+          
             </div>
             
           </div>
@@ -116,8 +125,9 @@
 
 
 
-    <hr class="my-4">
-    <div class="signInFooter container">
+    <div id="footer">
+      <hr class="my-4">
+    
       <div class="footer-copyright text-center py-3">
         <div class="socials">
           <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>

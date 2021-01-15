@@ -45,8 +45,9 @@
       </div>
     </nav>
 
+
     <div class="fundraiser-container container">
-      <%= form_with(model: @fundraiser, method: :post, local: true) do |f| %>
+      <%= form_with(model: @fundraiser, method: :patch, local: true) do |f| %>
      
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Fundraiser Title</label>
@@ -80,12 +81,18 @@
           </div>
         </div>
 
-        
-        <%= f.submit "Create", class: "btn btn-outline-dark btn-lg w-100" %>
-        
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="<%= "/fundraisers/" + @fundraiser.id.to_s%>" class="btn btn-danger btn-lg w-100">Cancel</a>
+            </div>
+            <div class="col-sm-8">
+                <%= f.submit "Update", class: "btn btn-dark btn-lg w-100" %>
+            </div>
+        </div>
         
       <% end %>
     </div>
+
     <div id="footer">
       <hr class="my-4">
     

@@ -44,6 +44,75 @@
         <% end %>
       </div>
     </nav>
-    Hi
+    <div class="back-container container">
+        
+            <a class="back-anchor" href="/fundraisers">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                </svg>
+        Back
+            
+            </a>
+        
+    </div>
+
+    <div class="card fundraiser-for-each-container">
+            
+        <div class="row">
+            
+            <div class="col-md-7 px-3">
+                <div class="event-details card-block px-6">
+
+                  <h4 class="card-title"><%= @fundraiser.title %></h4>
+                  <!-- <h4 class="card-title">First General Meeting Fall – Fall 2020</h4> -->
+                  <p class="card-text"> 
+                      <%= @fundraiser.description %>
+                  </p>
+                  <br>
+                  <div class="sharing-buttons">
+                        <a href="<%= @fundraiser.donate %>" class="btn btn-dark btn-lg donate">Donate</a>
+                        <a href="<%= @fundraiser.share %>" class="btn btn-light btn-lg share">Share</a>
+                  </div>
+                </div>
+                <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+              </div>
+              
+
+              <% if @fundraiser.image.attached? %>
+                  <div class="fund-pic-container col-md-5">
+                      <%= image_tag(@fundraiser.image, class: "fundraiserIMG") %>
+                  </div>
+              <% else %>
+                  <div class="fund-pic-container col-md-5">
+                      <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+                  </div>
+              <% end %>
+          
+        </div>
+            
+    </div>
+    
+    <div class="edit-buttons container">
+        <a href="<%= '/fundraisers/' + @fundraiser.id.to_s + '/edit/' %>" class="btn btn-outline-primary btn-lg edit-btn">Edit</a>
+        <%= button_to "Delete", @fundraiser, :method => :delete, :class => "btn btn-outline-danger btn-lg delete-btn"%>  
+    </div>
+    
+          
+    <div id="footer">
+      <hr class="my-4">
+    
+      <div class="footer-copyright text-center py-3">
+        <div class="socials">
+          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
+        </div>
+        <div class="copyright">
+          <p>© 2021 Cal ASA</p>
+        </div>
+        
+      </div>
+    </div> 
+    
 </body>
 </html>
