@@ -29,7 +29,7 @@
             <a class="nav-link" href="/fundraisers">Fundraisers</a>
           </li>
          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="https://www.facebook.com/groups/196014587098456">Become a Member</a>
+            <a class="nav-link" aria-current="page" href="/membership">Become a Member</a>
           </li>
         </ul>
         <% if logged_in? %>
@@ -47,11 +47,71 @@
       <a href="/events/new" class="post-button btn btn-outline-dark">New Post</a>
     <% end %>
 
-  <div class="container py-3">
+  <!-- <div class="container py-3">
+  <div class="title h1 text-center">Recent Events</div> -->
   <div class="title h1 text-center">Recent Events</div>
-
-
-
+  <% if logged_in?%>
+    <% @events.each do |event| %>
+    <div class="card fundraiser-each-container" onclick="location.href='<%= '/fundraisers/' + event.id.to_s %>'">  
+      <div class="row">
+        <div class="col-md-7 px-3">
+          <div class="event-details card-block px-6">
+            <h4 class="card-title"><%= event.title %></h4>
+              <p class="card-text"> 
+                <%= event.content %>
+              </p>
+              <br>
+              <div class="sharing-buttons">
+                <a href="<%= event.rsvp %>" class="btn btn-dark btn-lg donate">RSVP</a>
+                <a href="<%= event.share %>" class="btn btn-light btn-lg share">Share</a>
+              </div>
+          </div>
+          <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+        </div>
+        <% if event.image.attached? %>
+          <div class="fund-pic-container col-md-5">
+            <%= image_tag(fundraiser.image, class: "fundraiserIMG") %>
+          </div>
+        <% else %>
+          <div class="fund-pic-container col-md-5">
+            <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+          </div>
+        <% end %>
+      </div>     
+    </div>
+    <% end%>
+  <% else %>
+    <% @events.each do |event| %>
+      <div class="card fundraiser-for-each-container">  
+        <div class="row">
+          <div class="col-md-7 px-3">
+            <div class="event-details card-block px-6">
+              <h4 class="card-title"><%= event.title %></h4>
+                <p class="card-text"> 
+                  <%= event.content %>
+                </p>
+                <br>
+                <div class="sharing-buttons">
+                  <a href="<%= event.rsvp %>" class="btn btn-dark btn-lg donate">RSVP</a>
+                  <a href="<%= event.share %>" class="btn btn-light btn-lg share">Share</a>
+                </div>
+            </div>
+            <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+          </div>
+          <% if event.image.attached? %>
+            <div class="fund-pic-container col-md-5">
+              <%= image_tag(fundraiser.image, class: "fundraiserIMG") %>
+            </div>
+          <% else %>
+            <div class="fund-pic-container col-md-5">
+              <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+            </div>
+          <% end %>
+        </div>     
+      </div>
+    <% end%>
+  <% end %>
+  <!--
   <div class="card">
     <div class="row ">
       <div class="col-md-7 px-3">
@@ -278,15 +338,16 @@
 </div>
 
 
-</div>
+</div> -->
 
-<hr class="my-4">
-    <div class="signInFooter container">
+    <div class="container" id="footer">
+      <hr class="my-4">
+    
       <div class="footer-copyright text-center py-3">
         <div class="socials">
-          <a href="https://www.instagram.com/cal_asa/"><img class="socialLink" src="assets/instagram.png" alt=""></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><img class="socialLink" src="assets/facebook.png" alt=""></a>
-          <a href="mailto:calberkeleyasa@gmail.com"><img class="socialLink" src="assets/email.png" alt=""></a>
+          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
         </div>
         <div class="copyright">
           <p>© 2021 Cal ASA</p>

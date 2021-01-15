@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ASA berkeley Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Lato:wght@300;400&family=Lora&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'membership', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      
+      <a class="navTitle navbar-brand" href="/">Cal ASA</a>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/fundraisers">Fundraisers</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link active" href="/membership">Become a Member</a>
+          </li>
+        </ul>
+        <% if logged_in? %>
+          <a class="btn btn-danger" id="signOutButton" href="/signout">Sign Out</a> 
+        <% end %>
+
+        <% if not_logged_in? %>
+          <a class="btn btn-outline-danger" id="signInButton" href="/signin">Sign In</a> 
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="intro-container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="member-intro">
+            <h1>Become a Member of the Armenian Student Association @ Berkeley</h1>
+            <%= image_tag("arm-profile", class: "member-profile")%>
+          </div>
+        </div>
+        <div class="col-md-6 member-content">
+          <div class="member-content-info">
+            <p>
+              Cal ASA is more than an organization; it is a community of people caring for each other,
+              helping each other, and sharing with each other. As a member of the Armenian Student Organization,
+              you would have exclusive invitations to club events – social and cultural – as well as network
+              with like-minded individuals.
+            </p>
+            <br>
+            <p class="author-signiture">
+            S. Petrosyan
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+        <button type="button" class="closing-btn close-<%= key %>" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= value %>
+        </div>
+    <% end %>
+
+    <div class="subscription-outer-container">
+      <div class="subscribe-title">
+        <h1>Subscribe to the Cal ASA Newsletter</h1>
+      </div>
+      <%= form_with(model: @membership, method: :post,  class: "form", local: true) do |f| %>
+      <div class="row subscription-inner-container">
+        <div class="col-md-4">
+          <div class="form-floating">
+              <%= f.text_field :name, for: "nameFloat", id: "subscribeName", class: "form-control subscribeField", placeholder: "John Doe"%>
+              <label for="nameFloat">Name</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating">
+              <%= f.text_field :email_address, type: "email", for: "emailFloat", id: "subscribeEmail", class: "form-control subscribeField", placeholder: "john@doe.com"%>
+              <label for="emailFloat">Email Address</label>
+          </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-floating">
+          <%= f.submit "Subscribe", id: "subscribeSubmit", class: "btn btn-lg btn-custom w-100 subscribeField"%>
+        </div>
+        </div>
+      </div>
+      <% end %>
+      <div class="subscribe-captions">
+        <p class="subscribe-captions-content">
+        By subscribing to our newsletter, you would get the freshest announcement straight
+      to your inbox. Whether it is an upcoming event or a fundraiser we are starting, the moment
+      we know, you know. 
+        </p>
+      </div>
+    </div>
+    <div class="facebook-outer-container">
+      <div class="facebook-title">
+        <h1>Join Facebook Group</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="facebook-image">
+            <%= image_tag("facebook-membership", class: "fbIMG")%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="facebook-content">
+            <p>
+              Facebook serves as our primary source of communications. 
+              Members are welcome to post whatever they find relevant, 
+              attend social gatherings, or promote the works of their 
+              friends. The possibilities are endless. We urge you to
+               join as well! See an event you are interested in, RSVP
+                on Facebook, and let your peers know you will be attending. 
+            </p>
+          </div>
+          <div class="facebook-join">
+            <a href="https://www.facebook.com/groups/196014587098456" class="btn btn-lg btn-outline-primary w-100">Join</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <hr class="sep-3">
+    <div class="instagram-outer-container">
+      <div class="instagram-title">
+        <h1>Follow on Instagram</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="instagram-content">
+            <p>
+              Instagram is our gallery. We capture moments and share them with
+               ourselves and with people who might have missed them. We express
+                our feelings, gratitude, and perseverance by sharing our intimate
+                 parts of life and storing them as mementos. Take a sneak peek and
+                  see the gears that turn the Cal ASA by following us on Instagram!
+            </p>
+          </div>
+          <div class="instagram-follow">
+            <a href="https://www.instagram.com/cal_asa/" class="btn btn-outline-danger btn-lg w-100">Follow</a>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="instagram-image">
+            <%= image_tag("instagram-membership", class: "igIMG")%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="footer">
+      <hr class="my-4">
+    
+      <div class="footer-copyright">
+        <div class="socials">
+          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
+        </div>
+        <div class="copyright">
+          <p>© 2021 Cal ASA</p>
+        </div>
+      </div>
+    </div> 
+
+
+
+
+
+</body>
+</html>

@@ -22,7 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+# Mailing list helper gem for generating HTTP requests
+gem 'faraday'
 # Use Active Storage variant
 gem 'mini_magick', '~> 4.8'
 # gem 'image_processing', '~> 1.2'

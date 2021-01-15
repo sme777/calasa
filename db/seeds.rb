@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(name: "Samson", email: "1@gmail.com", password: "21asdasd1231asdasd0asdasdj")
 Fundraiser.create(title: "The End", description: "Welcome to the end of the world.")
+Event.create(title: "New Event", content: "Lets party!", rsvp: "https://yahoo.com", share: "https://facebook.com")

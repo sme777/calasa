@@ -33,7 +33,7 @@
             <a class="nav-link" href="/fundraisers">Fundraisers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="https://www.facebook.com/groups/196014587098456">Become a Member</a>
+            <a class="nav-link" aria-current="page" href="/membership">Become a Member</a>
           </li>
         </ul>
 
@@ -64,13 +64,14 @@
             
         </form>
     </div>
-    <hr class="my-4">
-    <div class="signInFooter container">
+    <div class="container" id="footer">
+      <hr class="my-4">
+    
       <div class="footer-copyright text-center py-3">
         <div class="socials">
-          <a href="https://www.instagram.com/cal_asa/"><img class="socialLink" src="assets/instagram.png" alt=""></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><img class="socialLink" src="assets/facebook.png" alt=""></a>
-          <a href="mailto:calberkeleyasa@gmail.com"><img class="socialLink" src="assets/email.png" alt=""></a>
+          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
         </div>
         <div class="copyright">
           <p>© 2021 Cal ASA</p>

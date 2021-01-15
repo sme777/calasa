@@ -45,7 +45,7 @@ class FundraisersController < ApplicationController
     def destroy
         @fundraiser = Fundraiser.find(params[:id])
         @fundraiser.destroy
-        redirect_to "/fundraisers"
+        redirect_to '/fundraisers'
     end
 
     def authenticate

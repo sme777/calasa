@@ -11,6 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Lato:wght@300;400&family=Lora&display=swap" rel="stylesheet">
+    
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'signin', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,7 +35,7 @@
             <a class="nav-link" href="/fundraisers">Fundraisers</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://www.facebook.com/groups/196014587098456">Become a Member</a>
+            <a class="nav-link" href="/membership">Become a Member</a>
           </li>
         </ul>
         <% if logged_in? %>
@@ -137,7 +140,7 @@ ASA strives to foster and support its members as well as enhance their college e
   </div>
 
 
-  <hr class="my-5">
+  <hr class="sep-3">
   <div class="execBody container">
       <div class="execHeader">
           <h1>Meet our Exec</h1>
@@ -204,15 +207,15 @@ ASA strives to foster and support its members as well as enhance their college e
               <%= image_tag("anita", class: "exec-image")%>
               <div class="execSubs">
                   <h4 class="mainChairName">Anita Megerdichyan</h4>
-                  <h5 class="mainChairTitle">President</h5>
+                  <h5 class="mainChairTitle">Social Media Chair</h5>
               </div>
 
           </div>
           <div class="col-md-4">
               <%= image_tag("ani", class: "exec-image")%>
               <div class="execSubs">
-                  <h4 class="mainChairName">Sosse Krikorian</h4>
-                  <h5 class="mainChairTitle">Vice-President</h5>
+                  <h4 class="mainChairName">Ani Gevorkian</h4>
+                  <h5 class="mainChairTitle">Public Relations Chair</h5>
               </div>
 
           </div>
@@ -220,7 +223,7 @@ ASA strives to foster and support its members as well as enhance their college e
               <%= image_tag("arman", class: "exec-image")%>
               <div class="execSubs">
                   <h4 class="mainChairName">Arman Ter-Petrosyan</h4>
-                  <h5 class="mainChairTitle">Social Chair</h5>
+                  <h5 class="mainChairTitle">Cultural Chair</h5>
               </div>
 
           </div>
@@ -262,19 +265,20 @@ ASA strives to foster and support its members as well as enhance their college e
       </div>
   </div>
 
-  <hr class="my-4">
-  <div class="foot container">
-    <div class="ending footer-copyright text-center py-3">
-      <div class="socials">
-        <a href="https://www.instagram.com/cal_asa/"><%= image_tag("instagram.png", class: "socialLink") %></a>
-        <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook.png", class: "socialLink") %></a>
-        <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email.png", class: "socialLink") %></a>
+    <div class="container" id="footer">
+      <hr class="my-4">
+    
+      <div class="footer-copyright text-center py-3">
+        <div class="socials">
+          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
+        </div>
+        <div class="copyright">
+          <p>© 2021 Cal ASA</p>
+        </div>
+        
       </div>
-      <div class="copyright">
-        <p>© 2021 Cal ASA</p>
-      </div>
-      
-    </div>
-  </div>
+    </div> 
   </body>
 </html>
