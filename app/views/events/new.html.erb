@@ -32,49 +32,53 @@
             <a class="nav-link" aria-current="page" href="/membership">Become a Member</a>
           </li>
         </ul>
-        <!-- <a class="btn btn-outline-danger" id="signInButton">Sign In</a> -->
 
       </div>
     </nav>
-    <!-- <div class="container">
-      <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Event Title</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Time to Party">
-      </div>
-      <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Event Description</label>
-          <textarea class="event-description form-control" id="exampleFormControlTextarea1" rows="3" placeholder="When should we start?"></textarea>
-      </div>
-
-      <button type="button" class="btn btn-outline-dark btn-lg w-100">Create</button>
-    </div> -->
 
 
 
-    <div class="container">
-    <%= form_with(model: @event, local: true) do |f| %>
+ <div class="fundraiser-container container">
+      <%= form_with(model: @event, method: :post, local: true) do |f| %>
+     
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Event Title</label>
+            <%= f.text_field :title, class: "form-control", placeholder: "What's all this fuss about?"%>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Event Description</label>
+            <%= f.text_area :content, size: "60x10", class: "event-description form-control", placeholder: "How large is this party going to be?" %>
+        </div>
 
-      <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Event Title</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Time to Party">
-      </div>
-      <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Event Description</label>
-          <textarea class="event-description form-control" id="exampleFormControlTextarea1" rows="3" placeholder="When should we start?"></textarea>
-      </div>
+        <div class="mb-3">
+          <%= f.label "Event Image", for: "formFileMultiple", class: "form-label" %>
+          <%= f.file_field :images, multiple: true, class: "form-control", type: "file", id: "formFileMultiple"%>
+        </div>
 
+        
+        <div class="row link-sources">
+          <div class="col-md-6">
+              <div class="input-group donation-group">
+                  <%= f.text_field :donate, type: "url", class: "form-control", placeholder: "https://google.com"%>
+                  <span class="input-group-text" id="donate">RSVP Link</span>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="input-group sharing-group">
+                  <%= f.text_field :share, type: "url", class: "form-control", placeholder: "https://facebook.com"%>
+                  <span class="input-group-text" id="share">Sharing Link</span>
+              </div>
+          </div>
+        </div>
 
-      <%= f.label "Event Image" %>
-      <%= f.file_field :image, class: "btn btn-danger" %>
-
-      <button type="button" class="btn btn-outline-dark btn-lg w-100">Create</button>
-      
-
-
-    <% end %>
+        
+        <%= f.submit "Create", class: "btn btn-outline-dark btn-lg w-100" %>
+        
+        
+      <% end %>
     </div>
 
-        <div class="container" id="footer">
+    <div class="container" id="footer">
       <hr class="my-4">
     
       <div class="footer-copyright text-center py-3">
