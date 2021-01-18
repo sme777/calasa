@@ -81,7 +81,9 @@
                         <a href="<%= @event.share %>" class="btn btn-success btn-lg share">Share</a>
                   </div>
                 </div>
-                <p class="post-date">Posted: <%= @event.created_at.strftime("%A, %B %e, %Y")%></p> 
+                <div class="post-date-container">
+                <p class="post-date">Posted: <i><%= @event.created_at.strftime("%A, %B %e, %Y")%></i></p> 
+                </div>
               </div>
               
 

@@ -40,17 +40,9 @@ class MembershipsController < ApplicationController
     if response.status == 200
       flash[:success] = "Successfully subscribed to email newsletter!"
       redirect_to '/membership'
-      # render json: {
-      #   status: response.status,
-      #   message: "#{user_details[:email_address]} has been added to the mailing list"
-      # }
     else
       flash[:danger] = "Oh no, something went wrong. Try again with a different email."
       redirect_to '/membership'
-      # render json: {
-      #   status: response.status,
-      #   message: response_body["details"]
-      # }
     end
   end
 
