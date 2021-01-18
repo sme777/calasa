@@ -8,6 +8,8 @@
 /.bundle
 .env
 .browserslistrc
+.ruby-version
+.gitattributes
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
