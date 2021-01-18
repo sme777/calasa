@@ -7,7 +7,7 @@ ruby '2.6.3'
 gem 'rails', '~> 6.1.0'
 # Use postgre as the database for Active Record
 #gem 'sqlite3', '~> 1.4'
-gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -39,7 +39,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  
+  gem 'pg', '~> 1.1'
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
