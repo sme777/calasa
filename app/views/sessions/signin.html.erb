@@ -47,7 +47,7 @@
         <form action="/signin" class="signIn form-signin" method="POST">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
             <div class="calasa">
-                <img class="calasaIMG" src="assets/calasa.jpg" alt="">
+                <%= image_tag("calasa.jpg", class: "calasaIMG")%>    
             </div>
             
             <div class="form-floating mb-4">
