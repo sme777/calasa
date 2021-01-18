@@ -6,7 +6,6 @@ class FundraisersController < ApplicationController
 
     def show
         @fundraiser = Fundraiser.find(params[:id])
-        #redirect_to '/fundraisers'
         render :show
     end
 
@@ -24,10 +23,8 @@ class FundraisersController < ApplicationController
         
         @fundraiser.image.attach(params[:fundraiser][:image])
          
-        #@fundraiser.attach(params[:fundraiser][:images])
-        #byebug
         if @fundraiser.save
-            redirect_to  '/fundraisers'#@fundraiser
+            redirect_to  '/fundraisers'
         else
             render :new
         end
@@ -36,6 +33,9 @@ class FundraisersController < ApplicationController
     def update
         @fundraiser = Fundraiser.find(params[:id])
         if @fundraiser.update(fundraiser_params)
+            if params[:fundraiser][:image] != nil
+                @fundraiser.image.attach(params[:fundraiser][:image])
+            end
             redirect_to @fundraiser
         else
             render :edit

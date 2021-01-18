@@ -58,7 +58,7 @@
     </div>
 
     <div class="firstBody container-fluid">
-      <h1>Who We Are</h1>
+      <h1 class="whoweare">Who We Are</h1>
       <p class="firstHeader">The UC Berkeley Armenian Student Association cultivates a spirit of appreciation toward Armenian history,
        heritage, and culture through active cultural functions, historical and political awareness, as well as, social
         and recreational events. It strives to create an association where Armenians and non-Armenians alike can come 
@@ -74,48 +74,109 @@
           <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
           <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
           <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="9"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="10"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
              <%= image_tag("ardzagank.jpg", class: "d-block w-100") %>
             
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color: black;"><strong>Ardzagank in front of Sproul</strong></h5>
-              <p>Our incredible choir performs in many venues, one of them happened to be the Sproul hall.</p>
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">Ardzagank</h5>
+              <p class="carousel-overlay-content">Our incredible choir performs in many venues; one of them happened to be the Sproul Hall.</p>
             </div>
           </div>
           <div class="carousel-item">
             <%= link_to image_tag("doeGuitar.jpg", class: "d-block w-100" )%>
             
-            <div class="carousel-caption d-none d-md-block">
-              <h5><strong>Our beloved musicians.</strong></h5>
-              <p>We help each other to become stronger, music is one of the purest ways to express one's feelings.</p>
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">The Musicians</h5>
+              <p class="carousel-overlay-content">We help each other become stronger. Music is one of the purest ways to express one's feelings, and it's nice too.</p>
             </div>
           </div>
           <div class="carousel-item">
             <%= link_to image_tag("tahoe2019.jpg", class: "d-block w-100") %>
             
-            <div class="carousel-caption d-none d-md-block">
-              <h5 style="color: black;"><strong>Studying while having Fun?</strong></h5>
-              <p style="color: yellow;">A <strong>Tahoe</strong> trip would be far too ideal for a Berkley student, that's why we bring our books with us!</p>
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">Studying in Tahoe</h5>
+              <p class="carousel-overlay-content">A <strong>Tahoe</strong> trip would be far too ideal for a Berkley student, that's why we bring our books with us!</p>
             </div>
           </div>
 
           <div class="carousel-item">
-            <%= link_to image_tag("doeLib.jpg", class: "d-block w-100") %>
+            <%= link_to image_tag("sathergate", class: "d-block w-100") %>
             
-            <div class="carousel-caption d-none d-md-block">
-              <h5><strong>In front of the Doe Library</strong></h5>
-              <p>We commemorate the Armenian Genocide during annual concentration week which include the Remembrance day.</p>
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">Blocking Sather Gate</h5>
+              <p class="carousel-overlay-content">Once a year on the Remembrance Day of the Armenian Genocide, we block the Sather gate to raise awareness</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("doeCamp", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">Talks in the Glade</h5>
+              <p class="carousel-overlay-content">The strive for justice units us, but it also makes our identity. </p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("armandattack", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title"><strong>The Armand</strong></h5>
+              <p class="carousel-overlay-content">Armand is an endangered species frequently spotted in bars and Hooters. Proceed with caution.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("tahoepic", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">The Brothers Karamazov</h5>
+              <p class="carousel-overlay-content">I can see the sun, but even if I cannot see the sun, I know that it exists. And to know that the sun is there - that is living (says the guy on the right).</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("arikconcert", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">The Arik</h5>
+              <p class="carousel-overlay-content">Arik is arguably the most skilled person ever part of the ASA. He is the Jack of all trades, master of all.
+               Singing is only of these dozen perfected skills. Others include skinny-dipping and hitting the elevator button multiple times.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("dianaconcert", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">The Voice of an Angel</h5>
+              <p class="carousel-overlay-content">Few people can sing like Diana. She blesses everyone attending with her incredible performances.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <%= link_to image_tag("calday", class: "d-block w-100") %>
+            
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">In front of the Doe</h5>
+              <p class="carousel-overlay-content">We gather together to enjoy each other's companies, play games, and talk about life.</p>
             </div>
           </div>
 
           <div class="carousel-item">
             <%= link_to image_tag("food.jpg", class: "d-block w-100") %>
 
-            <div class="carousel-caption d-none d-md-block">
-              <h5><strong>Delicious Baklava</strong></h5>
-              <p>As a part of the annual cultural show, guest are introduced to the best of the Armenian culture, from cusine to dancing.</p>
+            <div class="carousel-caption d-none d-md-block white-bg">
+              <h5 class="carousel-overlay-title">Delicious Baklava</h5>
+              <p class="carousel-overlay-content">As a part of the annual cultural show, guests are introduced to the best of the Armenian culture, from food to dancing and from history to reality.</p>
             </div>
           </div>
 
@@ -133,8 +194,8 @@
     </div>
 
   <div class="secondBody container-fluid">
-    <h1>Our Mission</h1>
-    <p>The Armenian Students Association at the University of California, Berkeley was founded in 1976 and its mission since then has been to provide a community where Armenian students at Cal can embrace their heritage and cultivate a spirit of appreciation towards Armenian history and culture through social, cultural, philanthropic, and professional events. 
+    <h1 class="mission">Our Mission</h1>
+    <p class="mission">The Armenian Students Association at the University of California, Berkeley was founded in 1976 and its mission since then has been to provide a community where Armenian students at Cal can embrace their heritage and cultivate a spirit of appreciation towards Armenian history and culture through social, cultural, philanthropic, and professional events. 
 
 ASA strives to foster and support its members as well as enhance their college experience at Cal by allowing them to come together and connect with their roots, give back to their community, and celebrate their culture and history without any outside political affiliations and/or religious influence. </p>
   </div>
@@ -271,7 +332,7 @@ ASA strives to foster and support its members as well as enhance their college e
       <div class="footer-copyright text-center py-3">
         <div class="socials">
           <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("fb-dark", class: "socialLink")%></a>
           <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
         </div>
         <div class="copyright">

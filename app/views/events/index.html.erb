@@ -44,18 +44,24 @@
 
 
     <% if logged_in? %>
-      <a href="/events/new" class="post-button btn btn-outline-dark">New Post</a>
+    <div class="add-container">
+      <a href="/events/new" class="btn btn-outline-dark btn-add">New Event</a>
+    </div>
     <% end %>
-
-  <div class="title h1 text-center">Recent Events</div>
+  <% if logged_in? %>
+    <div class="title h1 text-center">Recent Events</div>
+  <% else %>
+    <div class="title h1 text-center text-top">Recent Events</div>
+  <% end %>
+  
   <% if logged_in?%>
     <% @events.each do |event| %>
-    <div class="card fundraiser-each-container" onclick="location.href='<%= '/events/' + event.id.to_s %>'">  
+    <div class="card event-each-container" onclick="location.href='<%= '/events/' + event.id.to_s %>'">  
       <div class="row">
         <div class="col-md-7 px-3">
           <div class="event-details card-block px-6">
             <h4 class="card-title"><%= event.title %></h4>
-              <p class="card-text"> 
+              <p class="card-text event-description"> 
                 <%= event.content %>
               </p>
               <br>
@@ -64,15 +70,17 @@
                 <a href="<%= event.share %>" class="btn btn-success btn-lg share">Share</a>
               </div>
           </div>
-          <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+          <div class="post-date-container">
+            <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p> 
+          </div>
         </div>
         <% if event.image.attached? %>
-          <div class="fund-pic-container col-md-5">
-            <%= image_tag(event.image, class: "fundraiserIMG") %>
+          <div class="event-pic-container col-md-5">
+            <%= image_tag(event.image, class: "eventIMG") %>
           </div>
         <% else %>
-          <div class="fund-pic-container col-md-5">
-            <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+          <div class="event-pic-container col-md-5">
+            <%= image_tag("first-meeting-2020", class: "eventIMG") %>
           </div>
         <% end %>
       </div>     
@@ -80,12 +88,12 @@
     <% end%>
   <% else %>
     <% @events.each do |event| %>
-      <div class="card fundraiser-for-each-container">  
+      <div class="card event-for-each-container">  
         <div class="row">
           <div class="col-md-7 px-3">
             <div class="event-details card-block px-6">
               <h4 class="card-title"><%= event.title %></h4>
-                <p class="card-text"> 
+                <p class="card-text event-description"> 
                   <%= event.content %>
                 </p>
                 <br>
@@ -94,249 +102,24 @@
                   <a href="<%= event.share %>" class="btn btn-light btn-lg share">Share</a>
                 </div>
             </div>
-            <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+            <div class="post-date-container">
+              <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p> 
+            </div>
           </div>
           <% if event.image.attached? %>
             <div class="fund-pic-container col-md-5">
-              <%= image_tag(fundraiser.image, class: "fundraiserIMG") %>
+              <%= image_tag(event.image, class: "eventIMG") %>
             </div>
           <% else %>
             <div class="fund-pic-container col-md-5">
-              <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
+              <%= image_tag("first-meeting-2020", class: "eventIMG") %>
             </div>
           <% end %>
         </div>     
       </div>
     <% end%>
   <% end %>
-  <!--
-  <div class="card">
-    <div class="row ">
-      <div class="col-md-7 px-3">
-        <div class="event-details card-block px-6">
-          <h4 class="card-title">Last General Meeting of 2020</h4>
-           <p class="card-text"> 
-          As the end of the semester is approaching, we want to invite you all 
-          to the last meeting of the semester! Thank you to everyone for such 
-          an amazing virtual semester. We are living in such difficult times, 
-          but it's great seeing everyone come together, even if it is virtually. 
-          Take a break from finals cramming and come to our last ASA meeting of the year!</p>
-   
-                    <br>
-          <a href="https://www.facebook.com/events/700323090615539/" class="btn btn-info btn-lg w-100 rsvp rsvp-sm">RSVP</a>
-        </div>
-      </div>
-      <div class="picture-container picture-container-small col-md-5">
-          <%= link_to image_tag("last-meeting-2020", class: "post2IMG postSmall") %>
-      </div>
-    </div>
-        <p class="post-date">Posted: 12/6/2020 11:23AM</p>
-        <% if logged_in? %>
-          <button type="button" class="btn btn-outline-info">Edit Post</button>
-        <% end %>
-    </div>
-
-
-
-
-    <div class="card">
-    <div class="row ">
-      <div class="col-md-7 px-3">
-        <div class="event-details card-block px-6">
-          <h4 class="card-title">Mt. Davidson Candlelight Vigil</h4>
-           <p class="card-text"> 
-         Please join us this Sunday, November 8, at Mt. Davidson to pay our respects to the soldiers who have fallen defending Artsakh.
-         </p>
-         <ul>
-         <li>
-         1:30 - Meet at St. John to walk to the cross together
-         </li>
-
-         <li>
-         3:00 - Vigil will begin at Mt. Davidson (if you do not want to participate in the walk, you can meet us at the cross at 3)
-         </li>
-
-         <li>
-         Please do not bring any candles to the cross
-         </li>
-
-         <li>
-         Face masks and social distancing will be required and enforced
-         </li>
-         </ul>
-
-   
-                    <br>
-          <a href="https://www.facebook.com/events/481581989436280/" class="btn btn-info btn-lg w-100 rsvp rsvp-md">RSVP</a>
-        </div>
-      </div>
-      <div class="picture-container picture-container-medium col-md-5">
-          <%= link_to image_tag("mount-davidson-walk", class: "post2IMG postSmall") %>
-      </div>
-    </div>
-        <p class="post-date">Posted: 11/2/2020 2:11PM</p>
-        <% if logged_in? %>
-          <button type="button" class="btn btn-outline-info">Edit Post</button>
-        <% end %>
-  </div>
-    
-
-      <div class="card">
-    <div class="row ">
-      <div class="col-md-7 px-3">
-        <div class="event-details card-block px-6">
-          <h4 class="card-title">Artsakh Awareness Week</h4>
-           <p class="card-text"> 
-          The past couple of weeks, especially this week, has been a very difficult time for the Armenian community. 
-          The recent announcement from PM Nikol Pashinyan and President Arayik Harutyunyan, agreed to a ceasefire 
-          that gave away the captured lands of Artsakh to Azerbaijan as well as the Shahumyan region has resulted 
-          in a lot of chaos. Since then, we have seen a huge uproar within the Armenian community. However, the 
-          Armenian community is a resilient one. We need to unite for our land, our culture, and the soldiers who
-           sacrificed their lives for our heritage. With that being said, we are looking forward to next week's, 
-           Artsakh Conflict Awareness Week, which will take place November 16-19. </p>
-            <ol>
-                <li>
-                  Documentary Viewing
-                </li>
-                <li>
-                  Social Media Protest
-                </li>
-                <li>
-                  Q&A Panel Discussion
-                </li>
-                <li>
-                  Virtual Vigil and Identity Talks
-                </li>
-            </ol>
-   
-                    <br>
-          <a href="https://www.facebook.com/events/386116892537002/" class="btn btn-info btn-lg w-100 rsvp rsvp-md">RSVP</a>
-        </div>
-      </div>
-      <div class="picture-container slideshow col-md-5">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <%= link_to image_tag("parts-of-circle", class: "event-slide") %>
-                  
-                </div>
-                <div class="carousel-item">
-                  <%= link_to image_tag("aaw-day-2", class: "event-slide") %>
-                </div>
-                <div class="carousel-item">
-                  <%= link_to image_tag("aaw-day-3", class: "event-slide") %>
-                </div>
-
-                <div class="carousel-item">
-                  <%= link_to image_tag("aaw-day-4", class: "event-slide") %>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </a>
-            </div>
-          </div>
-    </div>
-        <p class="post-date">Posted: 11/15/2020 6:37PM</p>
-        <% if logged_in? %>
-          <button type="button" class="btn btn-outline-info">Edit Post</button>
-        <% end %>
-
-  </div>
   
-
-  <div class="card">
-    <div class="row ">
-      <div class="col-md-7 px-3">
-        <div class="card-block px-6">
-          <h4 class="card-title">Whine and Cry Night </h4>
-          <p class="card-text">
-            The Zoom event you have all been waiting for... WHINE AND CRY NIGHT is here ladies and gents. 
-                    Get your favorite bottle of wine and log onto Zoom for some quality, ASA bonding time.
-
-                    This event will have set rules, and some prizes. Participants will nominate the 
-                    "best whiners", who then would compete in the ultimate whining championship.
-
-                    Here are the ground rules: </p>
-                      <ul>
-                        <li>
-                            Interrupting a whiner while they are whining carries a penalty of one sip of the drink.
-                        </li>
-                        <li>
-                            Interrupting more than 3 times carries a penalty of one full drink
-                        </li>
-                        <li>
-                            Each whiner has 2-4 minutes for their initial whine, after which he/she must stop, otherwise every extra 30 second carries a penalty of one sip of the drink.
-                        </li>
-                        <li>
-                            Exceeding the allowed time by more than two minute carries a penalty of one full drink.
-                        </li>
-                        <li>
-                            In the ultimate whining round, each nominee will have up to 6 minutes to whine
-                        </li>
-                        <li>
-                            In the ultimate whining, round nominees cannot whine about previously whined subjects
-                        </li>
-                        <li>
-                            At the end of the initial whining round, nominees would be chosen out of groups based on voting. We will define how groups are divided based on the number of participants.
-                        </li>
-                        <li>
-                            At the end of the ultimate whining round, nominees would be given their prizes based on the votes of ALL participants, not including themselves
-                        </li>
-                    </ul>
-                    <br>
-          <a href="https://www.facebook.com/events/689555208607869/" class="btn btn-info btn-lg w-100 rsvp">RSVP</a>
-        </div>
-      </div>
-      <div class="picture-container col-md-5">
-          <%= link_to image_tag("whine-cry", class: "post2IMG") %>
-      </div>
-    </div>
-        <p class="post-date">Posted: 9/18/2021 3:50PM</p>
-        <% if logged_in? %>
-          <button type="button" class="btn btn-outline-info">Edit Post</button>
-        <% end %>
-  </div>
-
-
-  <div class="card">
-    <div class="row ">
-      <div class="col-md-7 px-3">
-        <div class="event-details card-block px-6">
-          <h4 class="card-title">First General Meeting Fall – Fall 2020</h4>
-           <p class="card-text"> 
-          
-          We would like to welcome all of our new and returning members to our first official Zoom meeting of the year!
-           Our ASA’s 1st General Meeting will be held to greet the newcomers into our ASA family, discuss upcoming events
-          and opportunities to get involved, and to understand the general goal and vision of this club. Although COVID-19
-           is very present and making our experience virtual, the Exec team is working hard to make this year an amazing 
-           experience for all of us! A lot of fun events and activities have been planned for the year. We promise that 
-           some of your favorite memories at Cal will be made in the ASA family. Please pass on the word to all of your 
-           friends, thank you. We hope to see all of you, via Zoom, on above on Sept. 3!
-          </p>
-         
-                    <br>
-          <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-info btn-lg w-100 rsvp">RSVP</a>
-        </div>
-      </div>
-      <div class="picture-container picture-container-small col-md-5">
-          <%= link_to image_tag("first-meeting-2020", class: "post2IMG") %>
-      </div>
-    </div>
-        <p class="post-date">Posted: 8/25/2020 10:56PM</p>
-        <% if logged_in? %>
-          <button type="button" class="btn btn-outline-info">Edit Post</button>
-        <% end %>
-  </div>
-</div>
-
-
-</div> -->
 
     <div class="container" id="footer">
       <hr class="my-4">
@@ -344,7 +127,7 @@
       <div class="footer-copyright text-center py-3">
         <div class="socials">
           <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("fb-dark", class: "socialLink")%></a>
           <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
         </div>
         <div class="copyright">

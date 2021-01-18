@@ -44,24 +44,27 @@
         <% end %>
       </div>
     </nav>
+
     <% if logged_in? %>
-      <a href="/fundraisers/new" class="btn btn-outline-dark">New Fundraiser</a>
+    <div class="add-container">
+      <a href="/fundraisers/new" class="btn btn-outline-dark btn-add">New Fundraiser</a>
+    <div>
     <% end %>
-    <div class="title h1 text-center">Recent Fundraisers</div>
+
+    <% if logged_in? %>
+      <div class="title h1 text-center">Recent Fundraisers</div>
+    <% else %>
+      <div class="title h1 text-center text-top">Recent Fundraisers</div>
+    <% end%>
+
     <% if logged_in? %>
         <% @fundraisers.each do |fundraiser| %>
-          
-          
           <div class="card fundraiser-each-container" onclick="location.href='<%= '/fundraisers/' + fundraiser.id.to_s %>'">
-            
             <div class="row">
-            
               <div class="col-md-7 px-3">
-                <div class="event-details card-block px-6">
-
+                <div class="fundraiser-details card-block px-6">
                   <h4 class="card-title"><%= fundraiser.title %></h4>
-                  <!-- <h4 class="card-title">First General Meeting Fall – Fall 2020</h4> -->
-                  <p class="card-text"> 
+                  <p class="card-text fundraiser-description"> 
                       <%= fundraiser.description %>
                   </p>
                   <br>
@@ -70,7 +73,9 @@
                       <a href="<%= fundraiser.share %>" class="btn btn-light btn-lg share">Share</a>
                   </div>
                 </div>
-                <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+                <div class="post-date-container">
+                  <p class="post-date">Posted: <i><%= fundraiser.created_at.strftime("%A, %B %e, %Y")%></i></p> 
+                </div>
               </div>
               
 
@@ -82,19 +87,14 @@
                   <div class="fund-pic-container col-md-5">
                       <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
                   </div>
-              <% end %>
-          
+              <% end %> 
             </div>
-            
           </div>
-          
-        
       <% end %>
     <% end %>
 
     <% if not_logged_in? %>
-    <% @fundraisers.each do |fundraiser| %>
-        
+    <% @fundraisers.each do |fundraiser| %>  
         <div class="card fundraiser-for-each-container">
           <div class="row ">
             <div class="col-md-7 px-3">
@@ -108,30 +108,22 @@
                 <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-dark btn-lg donate">Donate</a>
                 <a href="https://www.facebook.com/events/1191905297862767/" class="btn btn-light btn-lg share">Share</a>
               </div>
-              <p class="post-date">Posted: 8/25/2020 10:56PM</p> 
+              <p class="post-date">Posted: <i><%= fundraiser.created_at.strftime("%A, %B %e, %Y")%></i></p> 
             </div>
             <div class="fund-pic-container col-md-5">
                 <%= image_tag("first-meeting-2020", class: "fundraiserIMG") %>
             </div>
-          </div>
-              
-        </div>
-        
+          </div>   
+        </div>   
+      <% end %>
     <% end %>
-    <% end %>
-    
-
-    
-
-
-
     <div class="container" id="footer">
       <hr class="my-4">
     
       <div class="footer-copyright text-center py-3">
         <div class="socials">
           <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram", class: "socialLink") %></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("facebook", class: "socialLink")%></a>
+          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("fb-dark", class: "socialLink")%></a>
           <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email", class: "socialLink")%></a>
         </div>
         <div class="copyright">

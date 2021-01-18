@@ -16,7 +16,7 @@
 .fundraiser-each-container {
     // z-index: 0;
     margin: 3% 5%;
-}
+} 
 
 .fundraiser-each-container a {
     text-decoration: none !important;
@@ -92,8 +92,34 @@
     clear: both;
  }
 
- .footer-copyright {
+.footer-copyright {
      text-align: center;
  }
+
+ .fundraiser-description {
+    white-space: pre-line !important;
+ }
+
+ .post-date-container {
+     float: right;
+ }
+
+ .post-date {
+     margin-top: 50px;
+ }
+
+ .add-container {
+    text-align: right;
+ }
+
+ .btn-add {
+     margin-top: 3%;
+     margin-right: 5%;
+ }
+ .text-top {
+     margin-top: 3%
+ }
+
+
 
 

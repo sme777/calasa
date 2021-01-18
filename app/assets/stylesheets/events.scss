@@ -1,8 +1,60 @@
 // Place all the styles related to the Fundraisers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.event-for-each-container {
+    margin: 3% 5%;
+}
 
+.event-each-container {
+    // z-index: 0;
+    margin: 3% 5%;
+}
+
+.event-each-container:hover {
+    background-color: #F8F8F8;
+}
+.event-container {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.eventIMG {
+    width: 100%;
+}
 .rsvp {
     margin-right: 2%;
     margin-left: 2%;
+}
+
+.rsvp-group {
+    margin-bottom: 3%;
+}
+
+.event-description {
+    white-space: pre-line !important;
+}
+
+.event-details {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.fundraiser-details {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.image-attached-container {
+    text-align: right;
+}
+.image-attached {
+    width: 30%;
+}
+
+.post-date-container {
+    float: right;
+}
+
+.post-date {
+    margin-top: 50px;
 }

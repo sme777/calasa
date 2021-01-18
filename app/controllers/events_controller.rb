@@ -12,8 +12,14 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
     end
 
+    def show
+        @event = Event.find(params[:id])
+        render :show
+    end
+
     def create
         @event = Event.new(event_params)
+        #byebug
         @event.image.attach(params[:event][:image])
 
         if @event.save
@@ -25,7 +31,10 @@ class EventsController < ApplicationController
 
     def update
         @event = Event.find(params[:id])
-        if @event.uodate(event_params)
+        if @event.update(event_params)
+            if params[:event][:image] != nil
+                @event.image.attach(params[:event][:image])
+            end
             redirect_to @event
         else
             render :edit
