@@ -23,8 +23,6 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: #F5F5F5;
     font-family: 'Lato', sans-serif;
-    // display: table-cell;
-    // vertical-align: middle;
 }
 .member-content-info {
     margin-right: 2%;
@@ -188,4 +186,20 @@ hr.sep-3::after {
     padding: 1rem;
     background-color: white;
   }
+
+  @media (max-width: 768px) {
+    .navbar ul li a {
+        text-align: center;
+    }
+
+    .sign-out-container {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .sign-in-container {
+        margin-right: 0;
+        text-align: center;
+    }
+}
 

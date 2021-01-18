@@ -19,7 +19,6 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.new(event_params)
-        #byebug
         @event.image.attach(params[:event][:image])
 
         if @event.save

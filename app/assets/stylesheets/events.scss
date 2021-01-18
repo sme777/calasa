@@ -6,7 +6,6 @@
 }
 
 .event-each-container {
-    // z-index: 0;
     margin: 3% 5%;
 }
 
@@ -57,4 +56,20 @@
 
 .post-date {
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .navbar ul li a {
+        text-align: center;
+    }
+
+    .sign-out-container {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .sign-in-container {
+        margin-right: 0;
+        text-align: center;
+    }
 }

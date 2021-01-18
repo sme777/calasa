@@ -14,7 +14,6 @@
 }
 
 .fundraiser-each-container {
-    // z-index: 0;
     margin: 3% 5%;
 } 
 
@@ -120,6 +119,21 @@
      margin-top: 3%
  }
 
+ @media (max-width: 768px) {
+    .navbar ul li a {
+        text-align: center;
+    }
+
+    .sign-out-container {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .sign-in-container {
+        margin-right: 0;
+        text-align: center;
+    }
+}
 
 
 

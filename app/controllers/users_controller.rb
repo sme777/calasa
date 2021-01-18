@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
     def index
-        # if session[:user_id] != nil
-        #     redirect_to '/', notice: "You have successfully signed in."
-        # end
+
     end
 
     def register
