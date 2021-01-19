@@ -89,12 +89,13 @@
 
               <% if @fundraiser.image.attached? %>
                   <div class="fund-pic-container col-md-5">
-                      <%= image_tag(@fundraiser.image, class: "fundraiserIMG") %>
+                      <%= image_tag(url_for(@fundraiser.image), class: "fundraiserIMG") %>
                   </div>
               <% else %>
                   <div class="fund-pic-container col-md-5">
                       <%= image_tag("first-meeting-2020.jpg", class: "fundraiserIMG") %>
                   </div>
+
               <% end %>
           
         </div>

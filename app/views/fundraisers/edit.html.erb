@@ -69,7 +69,7 @@
         </div>
        <% if @fundraiser.image.attached? %>
          <div class="image-attached-container">
-            <%= image_tag(@fundraiser.image, class: "image-attached") %>
+            <%= image_tag(url_for(@fundraiser.image), class: "image-attached") %>
         </div>
         <% end %>
         <div class="mb-3">
