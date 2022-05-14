@@ -12,8 +12,8 @@ class MembershipsController < ApplicationController
 
   def addUser
     # Setup the keys needed to access Mailchimp's API
-    url = "https://#{ENV["MAILCHIMP_DC"]}.api.mailchimp.com/3.0/lists/#{ENV["MAILCHIMP_UNIQUE_ID"]}/members"
-    api_key = ENV["MAILCHIMP_API_KEY"]
+    url = "https://#{Rails.application.credentials[:MAILCHIMP_DC]}.api.mailchimp.com/3.0/lists/#{Rails.application.credentials[:MAILCHIMP_UNIQUE_ID]}/members"
+    api_key = Rails.application.credentials[:MAILCHIMP_API_KEY]
 
     user_details = {
       email_address: params[:email_address],
