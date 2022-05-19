@@ -19,6 +19,12 @@
             <li class="nav-item">
                 <a class="nav-link <%= 'active' if tab == :membership %>" href="/membership">Become a Member</a>
             </li>
+            <% if logged_in? %>
+            <li class="nav-item">
+                <a class="nav-link <%= 'active' if tab == :management %>" href="/management">Management</a>
+            </li>
+            <% end %>
+
         </ul>
         <% if logged_in? %>
         <div class="sign-out-container">

@@ -1,0 +1,64 @@
+<%= render 'layouts/scripts' %>
+
+<body>
+    <%= render partial: "layouts/navbar", locals: {tab: :management} %>
+    
+    <div class="exec-header-container">
+        <h3>Management Dashboard</h3>
+    </div>
+    <div class="exec-table-container">
+        
+        <table class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Role</td>
+            </tr>
+        </thead>
+        <% @execs.each do |exec| %>
+            <tr>
+                <td><%= exec.name %></td>
+                <td><%= exec.role %></td>
+                <td><%= link_to(image_tag("trash", class: "remove-exec-btn"), remove_exec_path(exec.id), method: :post) %></td>
+            </tr>
+        <% end %>
+        </table>
+    </div>
+    <div class="flash-message-container">
+        <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+            <%= value %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% end %>
+    </div>
+    <div class="row">
+        <div class="col-md-6 user-add-container">
+        <h3 class="form-title">Add new Exec</h3>
+        
+        <%= form_with url: "/management/update", method: :patch do |f| %>
+        <div class="input-group">
+            <span class="input-group-text">Name</span>
+            <%= f.select :user, @users.map {|user| user.name}, {}, {class: "form-select"}%>
+            <span class="input-group-text">Role</span>
+            <%= f.select :role, @roles.map {|role| role.title}, {}, {class: "form-select"}%>
+        </div>
+        <%= f.submit "Add Exec", class: "btn btn-outline-dark w-100 exec-add-btn"%>
+        <% end %>
+        </div>
+        <div class="col-md-6 role-add-container">
+        <h3 class="form-title">Add new Role</h3>
+        
+        <%= form_with url: "/management/create", method: :post do |f| %>
+        <div class="input-group">
+            <span class="input-group-text">Title</span>
+            <%= f.text_field :title, type: :text, class: "form-control role-add-field", placeholder: "Co-Co-President"%>
+            <span class="input-group-text">Rank</span>
+            <%= f.text_field :rank, type: :number, class: "form-control", placeholder: "3"%>
+        </div>
+        <%= f.submit "Add Role", class: "btn btn-outline-dark w-100 exec-add-btn"%>
+        <% end %>
+        </div>
+    </div>
+    <%= render 'layouts/footer' %>
+</body>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def index
-
+        @execs = User.all.select {|user| !user.role.nil?}
     end
 
     def register

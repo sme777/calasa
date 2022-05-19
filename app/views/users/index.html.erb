@@ -179,125 +179,26 @@
       <h1>Meet our Exec</h1>
     </div>
 
-    <div class="execRow row">
+    <% @execs.each_with_index do |exec, idx| %>
+      <% if idx % 3 == 0%>
+        <div class="execRow row">
+      <% end %>
       <div class="col-md-4">
-        <%= image_tag("marinor.jpg", class: "exec-image")%>
+        <%
+=begin%>
+ <%= image_tag(exec.image_url, class: "exec-image")%> 
+<%
+=end%>
         <div class="execSubs">
-          <h4 class="mainChairName">Marinor Balouzian</h4>
-          <h5 class="mainChairTitle">Co-President</h5>
+          <h4 class="mainChairName"><%= exec.name %></h4>
+          <h5 class="mainChairTitle"><%= exec.role %></h5>
         </div>
-
       </div>
-      <div class="col-md-4">
-        <%= image_tag("davit.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Davit Gasparyan</h4>
-          <h5 class="mainChairTitle">Co-President</h5>
+      <% if (idx+1) % 3 == 0%>
         </div>
+      <% end %>
+    <% end %>
 
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("sosse.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Sosse Krikorian</h4>
-          <h5 class="mainChairTitle">Vice-President</h5>
-        </div>
-
-      </div>
-    </div>
-
-
-
-    <div class="execRow row">
-      <div class="col-md-4">
-        <%= image_tag("anna.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Anna Vardapetyan</h4>
-          <h5 class="mainChairTitle">Secretary</h5>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("samson.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <a class="execAnchor" href="https://sme777.github.io/homepage/">
-            <h4 class="mainChairName">Samson Petrosyan</h4>
-          </a>
-          <h5 class="mainChairTitle">Social Chair</h5>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("aleen.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Aleen Kuyumjian</h4>
-          <h5 class="mainChairTitle">Treasurer</h5>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="execRow row">
-      <div class="col-md-4">
-        <%= image_tag("anita.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Anita Megerdichyan</h4>
-          <h5 class="mainChairTitle">Social Media Chair</h5>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("ani.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Ani Gevorkian</h4>
-          <h5 class="mainChairTitle">Public Relations Chair</h5>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-        <%= image_tag("arman.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h4 class="mainChairName">Arman Ter-Petrosyan</h4>
-          <h5 class="mainChairTitle">Cultural Chair</h5>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="execRow row">
-      <div class="col-md-3">
-        <%= image_tag("michael.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h5 class="coChairName">Michael Khachatrian</h5>
-          <h6 class="coChairTitle">Co-Social Chair</h6>
-        </div>
-
-      </div>
-      <div class="col-md-3">
-        <%= image_tag("anya.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h5 class="coChairName">Anya Vertanessian</h5>
-          <h6 class="coChairTitle">Co-Cultural Chair</h6>
-        </div>
-
-      </div>
-      <div class="col-md-3">
-        <%= image_tag("julia.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h5 class="coChairName">Julia Sarieva</h5>
-          <h6 class="coChairTitle">Co-Social Chair</h6>
-        </div>
-
-      </div>
-      <div class="col-md-3">
-        <%= image_tag("areni.jpg", class: "exec-image")%>
-        <div class="execSubs">
-          <h5 class="coChairName">Areni Chorbajian</h5>
-          <h6 class="coChairTitle">Co-Cultural Chair</h6>
-        </div>
-
-      </div>
-    </div>
   </div>
   
   <%= render 'layouts/footer' %>

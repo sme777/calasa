@@ -18,11 +18,10 @@ Rails.application.routes.draw do
   end
 
   resources :fundraisers 
-  # do
-  #   member do
-  #     patch :edit
-  #   end
-  # end
-  # # get '/events' => 'posts#event'
   
+  get '/management' => 'roles#index'
+  post '/management/create' => 'roles#create'
+  patch '/management/update' => 'roles#update'
+  post '/management/delete/:id' => 'roles#delete', as: :remove_exec
+  # get '*path' => redirect('/404.html')
 end
