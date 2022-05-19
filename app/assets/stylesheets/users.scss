@@ -7,6 +7,10 @@
  *= require_self
  */
 
+body {
+    overflow-x: hidden;
+}
+
 .navTitle {
     margin-left: 20px;
   }

@@ -1,150 +1,85 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>ASA berkeley Homepage</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-</head>
+<%= render 'layouts/scripts' %>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-      <a class="navTitle navbar-brand" href="/">Cal ASA</a>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/events">Events</a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="/fundraisers">Fundraisers</a>
-          </li>
-         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/membership">Become a Member</a>
-          </li>
-        </ul>
-        <% if logged_in? %>
-        <div class="sign-out-container">
-          <a class="btn btn-danger" id="signOutButton" href="/signout">Sign Out</a> 
-        </div>       
-        <% end %>
 
-        <% if not_logged_in? %>
-        <div class="sign-in-container">
-          <a class="btn btn-outline-danger" id="signInButton" href="/signin">Sign In</a> 
-        </div>
-        <% end %>
-      </div>
-    </nav>
+  <%= render partial: "layouts/navbar", locals: {tab: :events} %>
 
-
-    <% if logged_in? %>
-    <div class="add-container">
-      <a href="/events/new" class="btn btn-outline-dark btn-add">New Event</a>
-    </div>
-    <% end %>
   <% if logged_in? %>
-    <div class="title h1 text-center">Recent Events</div>
-  <% else %>
-    <div class="title h1 text-center text-top">Recent Events</div>
+  <div class="add-container">
+    <a href="/events/new" class="btn btn-outline-dark btn-add">New Event</a>
+  </div>
   <% end %>
-  
+  <% if logged_in? %>
+  <div class="title h1 text-center">Recent Events</div>
+  <% else %>
+  <div class="title h1 text-center text-top">Recent Events</div>
+  <% end %>
+
   <% if logged_in?%>
-    <% @events.each do |event| %>
-    <div class="card event-each-container" onclick="location.href='<%= '/events/' + event.id.to_s %>'">  
-      <div class="row">
-        <div class="col-md-7 px-3">
-          <div class="event-details card-block px-6">
-            <h4 class="card-title"><%= event.title %></h4>
-              <p class="card-text event-description"> 
-                <%= event.content %>
-              </p>
-              <br>
-              <div class="sharing-buttons">
-                <a href="<%= event.rsvp %>" class="btn btn-secondary btn-lg rsvp">RSVP</a>
-                <a href="<%= event.share %>" class="btn btn-success btn-lg share">Share</a>
-              </div>
-          </div>
-          <div class="post-date-container">
-            <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p> 
+  <% @events.each do |event| %>
+  <div class="card event-each-container" onclick="location.href='<%= '/events/' + event.id.to_s %>'">
+    <div class="row">
+      <div class="col-md-7 px-3">
+        <div class="event-details card-block px-6">
+          <h4 class="card-title"><%= event.title %></h4>
+          <p class="card-text event-description">
+            <%= event.content %>
+          </p>
+          <br>
+          <div class="sharing-buttons">
+            <a href="<%= event.rsvp %>" class="btn btn-secondary btn-lg rsvp">RSVP</a>
+            <a href="<%= event.share %>" class="btn btn-success btn-lg share">Share</a>
           </div>
         </div>
-        <% if event.image.attached? %>
-          <div class="event-pic-container col-md-5">
-            <%= image_tag(url_for(event.image), class: "eventIMG") %>
-          </div>
-        <% else %>
-          <div class="event-pic-container col-md-5">
-            <%= image_tag("first-meeting-2020.jpg", class: "eventIMG") %>
-          </div>
-        <% end %>
-      </div>     
+        <div class="post-date-container">
+          <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p>
+        </div>
+      </div>
+      <% if event.image.attached? %>
+      <div class="event-pic-container col-md-5">
+        <%= image_tag(url_for(event.image), class: "eventIMG") %>
+      </div>
+      <% else %>
+      <div class="event-pic-container col-md-5">
+        <%= image_tag("first-meeting-2020.jpg", class: "eventIMG") %>
+      </div>
+      <% end %>
     </div>
-    <% end%>
+  </div>
+  <% end%>
   <% else %>
-    <% @events.each do |event| %>
-      <div class="card event-for-each-container">  
-        <div class="row">
-          <div class="col-md-7 px-3">
-            <div class="event-details card-block px-6">
-              <h4 class="card-title"><%= event.title %></h4>
-                <p class="card-text event-description"> 
-                  <%= event.content %>
-                </p>
-                <br>
-                <div class="sharing-buttons">
-                  <a href="<%= event.rsvp %>" class="btn btn-secondary btn-lg donate">RSVP</a>
-                  <a href="<%= event.share %>" class="btn btn-success btn-lg share">Share</a>
-                </div>
-            </div>
-            <div class="post-date-container">
-              <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p> 
-            </div>
+  <% @events.each do |event| %>
+  <div class="card event-for-each-container">
+    <div class="row">
+      <div class="col-md-7 px-3">
+        <div class="event-details card-block px-6">
+          <h4 class="card-title"><%= event.title %></h4>
+          <p class="card-text event-description">
+            <%= event.content %>
+          </p>
+          <br>
+          <div class="sharing-buttons">
+            <a href="<%= event.rsvp %>" class="btn btn-secondary btn-lg donate">RSVP</a>
+            <a href="<%= event.share %>" class="btn btn-success btn-lg share">Share</a>
           </div>
-          <% if event.image.attached? %>
-            <div class="fund-pic-container col-md-5">
-              <%= image_tag(url_for(event.image), class: "eventIMG") %>
-            </div>
-          <% else %>
-            <div class="fund-pic-container col-md-5">
-              <%= image_tag("first-meeting-2020.img", class: "eventIMG") %>
-            </div>
-          <% end %>
-        </div>     
+        </div>
+        <div class="post-date-container">
+          <p class="post-date">Posted: <i><%= event.created_at.strftime("%A, %B %e, %Y")%></i></p>
+        </div>
       </div>
-    <% end%>
+      <% if event.image.attached? %>
+      <div class="fund-pic-container col-md-5">
+        <%= image_tag(url_for(event.image), class: "eventIMG") %>
+      </div>
+      <% else %>
+      <div class="fund-pic-container col-md-5">
+        <%= image_tag("first-meeting-2020.jpg", class: "eventIMG") %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <% end%>
   <% end %>
-  
 
-    <div class="container" id="footer">
-      <hr class="my-4">
-    
-      <div class="footer-copyright text-center py-3">
-        <div class="socials">
-          <a href="https://www.instagram.com/cal_asa/"> <%= image_tag("instagram.png", class: "socialLink") %></a>
-          <a href="https://www.facebook.com/UCBerkeleyASA/"><%= image_tag("fb-dark.png", class: "socialLink")%></a>
-          <a href="mailto:calberkeleyasa@gmail.com"><%= image_tag("email.png", class: "socialLink")%></a>
-        </div>
-        <div class="copyright">
-          <p>© 2021 Cal ASA</p>
-        </div>
-        
-      </div>
-    </div> 
-
+  <%= render 'layouts/footer' %>
 </body>
-</html>

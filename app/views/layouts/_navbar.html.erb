@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navTitle navbar-brand" href="/">Cal ASA</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+                <a class="nav-link <%= 'active' if tab == :home %>" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%= 'active' if tab == :events %>" href="/events">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%= 'active' if tab == :fundraisers %>" href="/fundraisers">Fundraisers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%= 'active' if tab == :membership %>" href="/membership">Become a Member</a>
+            </li>
+        </ul>
+        <% if logged_in? %>
+        <div class="sign-out-container">
+            <a class="btn btn-danger" id="signOutButton" href="/signout">Sign Out</a>
+        </div>
+        <% end %>
+
+        <% if not_logged_in? %>
+        <div class="sign-in-container">
+            <a class="btn btn-outline-danger" id="signInButton" href="/signin">Sign In</a>
+        </div>
+        <% end %>
+    </div>
+</nav>
