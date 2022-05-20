@@ -191,6 +191,13 @@
         <% end %>
         <div class="execSubs">
           <h4 class="mainChairName"><%= exec.name %></h4>
+          <% if !exec.major.nil? && !exec.year.nil? %>
+            <p class="user-role"><i><%= exec.major %>, <%= exec.year %></i></p>
+          <% elsif !exec.major.nil? %>
+            <p class="user-role"><i><%= exec.major %></i></p>
+          <% elsif !exec.year.nil?%>
+            <p class="user-role"><i><%= exec.year %></i></p>
+          <% end %>
           <h5 class="mainChairTitle"><%= exec.role %></h5>
         </div>
       </div>

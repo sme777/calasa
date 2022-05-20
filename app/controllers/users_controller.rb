@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def update
         user = User.find_by(id: params[:id])
         user.update(major: params[:major], year: params[:year])
-        if params[:image] != ""
+        if !params[:image].nil? && params[:image] != ""
             user.image.attach(params[:image])
         end
         redirect_to '/profile'

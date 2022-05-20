@@ -28,7 +28,11 @@
         </ul>
         <% if logged_in? %>
         <div class="sign-out-container">
+            <% if !@current_user.image.attached? %>
             <%= link_to(image_tag("https://calasa.s3.us-east-2.amazonaws.com/profile-picture.png", class: "navbar-profile"), '/profile')%>
+            <% else %>
+            <%= link_to(image_tag(url_for(@current_user.image), class: "navbar-profile"), '/profile')%>
+            <% end %>
         </div>
         <% end %>
 

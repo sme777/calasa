@@ -19,7 +19,7 @@
             <tr>
                 <td><%= exec.name %></td>
                 <td><%= exec.role %></td>
-                <td><%= link_to(image_tag("trash", class: "remove-exec-btn"), remove_exec_path(exec.id), method: :post) %></td>
+                <td><%= link_to(image_tag(url_for("https://calasa.s3.us-east-2.amazonaws.com/trash.png"), class: "remove-exec-btn"), remove_exec_path(exec.id), method: :post) %></td>
             </tr>
         <% end %>
         </table>
