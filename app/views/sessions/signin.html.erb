@@ -9,7 +9,13 @@
       <div class="calasa">
         <%= image_tag("calasa.jpg", class: "calasaIMG")%>
       </div>
-
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> alert-dismissible" role="alert">
+          <%= value %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% end %>
+      
       <div class="form-floating mb-4">
         <input class="form-control" id="inputEmail" type="text" placeholder="Email" aria-label="Email"
           name="login[email]">

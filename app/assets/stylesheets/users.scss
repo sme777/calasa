@@ -244,15 +244,15 @@ h1.whoweare {
   }
 
 .btn-custom-dark {
-    border-color: #892cdc;
-    color: #892cdc;
+    border-color: #892cdc !important;
+    color: #892cdc !important;
     font-weight: 800;
   }
 
 .btn-custom-dark:hover {
     background-color: #892cdc;
     border-color: #52057b;
-    color: #000000;
+    color: #000000 !important;
 }
 
 .hr-dark {
@@ -277,5 +277,34 @@ h1.whoweare {
 }
 
 
+.profile-container {
+    padding: 5% 5%;
+}
 
-  
+.profile-picture {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.profile-upload-container {
+    padding-top: 2%;
+}
+
+.user-options-container {
+    padding-top: 2%;
+}
+
+.user-role {
+    color: #787878;
+}
+
+.navbar-profile {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.sign-out-btn-container {
+    width: 100%;
+    padding-top: 2%;
+    text-align: right;
+}

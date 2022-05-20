@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#signin'
   post '/signin' => 'sessions#create'
   get '/register' => 'users#register'
+  get '/profile' => 'users#profile'
+  post '/users/resign/:id' => 'users#resign', as: :user_resign
+  post '/users/delete/:id' => 'users#delete', as: :user_delete
+  patch '/users/update/:id' => 'users#update', as: :user_update
   post '/register' => 'users#create'
   get '/membership' => 'memberships#index'
   get '/signout' => 'sessions#signout'

@@ -184,11 +184,11 @@
         <div class="execRow row">
       <% end %>
       <div class="col-md-4">
-        <%
-=begin%>
- <%= image_tag(exec.image_url, class: "exec-image")%> 
-<%
-=end%>
+        <% if exec.image.attached? %>
+          <%= image_tag(url_for(exec.image), class: "exec-image") %>
+        <% else %>
+          <%= image_tag("profile-picture", class: "profile-picture")%>
+        <% end %>
         <div class="execSubs">
           <h4 class="mainChairName"><%= exec.name %></h4>
           <h5 class="mainChairTitle"><%= exec.role %></h5>

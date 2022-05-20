@@ -1,0 +1,57 @@
+<%= render 'layouts/scripts' %>
+
+<body>
+    <%= render partial: "layouts/navbar", locals: {tab: :home} %>
+
+    <div class="row profile-container">
+        <div class="col-md-5">
+            <% if @current_user.image.attached? %>
+                <%= image_tag(url_for(@current_user.image), class: "profile-picture") %>
+            <% else %>
+                <%= image_tag("profile-picture", class: "profile-picture")%>
+            <% end %>
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1><%= @current_user.name %></h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="sign-out-btn-container">
+                        <%= link_to "Sign Out", '/signout', class: "btn btn-dark"%>
+                    </div>
+                </div>
+            </div>
+            <p class="user-role"><i><%= @current_user.role %></i></p>
+            <div class="row">
+                <%= form_with url: user_update_path(@current_user.id), method: :patch do |f| %>
+                <div class="input-group">
+                    <span class="input-group-text">Major</span>
+                    <%= f.text_field :major, type: :text, class: "form-control role-add-field", value: @current_user.major, placeholder: "Computer Science" %>
+                    <span class="input-group-text">Year</span>
+                    <%= f.text_field :year, type: :text, class: "form-control", value: @current_user.year, placeholder: "Junior"%>
+                </div>
+                <div class="input-group profile-upload-container">
+                    <%= f.file_field :image, type: :file, class: "form-control", id: "profileUpload", accept: 'image/*' %>
+                    <label class="input-group-text" for="profileUpload">Update Picture</label>
+                </div>
+                <%= f.submit "Update", class: "btn btn-outline-dark w-100 exec-add-btn"%>
+                <% end %>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 user-options-container">
+                    <% if !@current_user.role.nil? %>
+                        <%= link_to "Resign", user_resign_path(@current_user.id), method: :post, class: "btn btn-warning w-100"%>
+                    <% end %>
+                </div>
+                <div class="col-md-6 user-options-container">
+                    <%= link_to "Delete Account", user_delete_path(@current_user.id), method: :post, class: "btn btn-danger w-100" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%= render 'layouts/footer' %>
+</body>
