@@ -8,7 +8,7 @@
             <% if @current_user.image.attached? %>
                 <%= image_tag(url_for(@current_user.image), class: "profile-picture") %>
             <% else %>
-                <%= image_tag("profile-picture", class: "profile-picture")%>
+                <%= image_tag("https://calasa.s3.us-east-2.amazonaws.com/profile-picture.png", class: "profile-picture")%>
             <% end %>
         </div>
         <div class="col-md-7">

@@ -187,7 +187,7 @@
         <% if exec.image.attached? %>
           <%= image_tag(url_for(exec.image), class: "exec-image") %>
         <% else %>
-          <%= image_tag("profile-picture", class: "profile-picture")%>
+          <%= image_tag("https://calasa.s3.us-east-2.amazonaws.com/profile-picture.png", class: "profile-picture")%>
         <% end %>
         <div class="execSubs">
           <h4 class="mainChairName"><%= exec.name %></h4>
