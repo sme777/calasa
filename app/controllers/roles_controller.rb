@@ -3,9 +3,9 @@ class RolesController < ApplicationController
     before_action :authenticate
 
     def index
-        @execs = User.all.select {|user| !user.role.nil?}
+        @execs = User.all.order(:role).select {|user| !user.role.nil?}
         @users = User.all
-        @roles = Role.all
+        @roles = Role.all.order(:rank)
         @new_role = Role.new
     end
 

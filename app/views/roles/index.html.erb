@@ -4,7 +4,7 @@
     <%= render partial: "layouts/navbar", locals: {tab: :management} %>
     
     <div class="exec-header-container">
-        <h3>Management Dashboard</h3>
+        <h3>Current Execs</h3>
     </div>
     <div class="exec-table-container">
         
@@ -34,7 +34,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 user-add-container">
-        <h3 class="form-title">Add new Exec</h3>
+        <h4 class="form-title">Add new Exec</h4>
         
         <%= form_with url: "/management/update", method: :patch do |f| %>
         <div class="input-group">
@@ -47,7 +47,7 @@
         <% end %>
         </div>
         <div class="col-md-6 role-add-container">
-        <h3 class="form-title">Add new Role</h3>
+        <h4 class="form-title">Add new Role</h4>
         
         <%= form_with url: "/management/create", method: :post do |f| %>
         <div class="input-group">
@@ -60,5 +60,30 @@
         <% end %>
         </div>
     </div>
+
+    <div class="role-guidelines-container">
+        <h4 class="form-title">Rank Description</h4>
+        <p>A rank of a role is used to sort exec members in the proper order in the main page. Below is the current
+        ranking system.</p>
+
+        <table class="table table-border">
+            <thead>
+                <tr>
+                    <td>Role</td>
+                    <td>Rank</td>
+                </tr>
+            </thead>
+            <tbody>
+            <% @roles.each do |role| %>
+                <tr>
+                    <td><%= role.title %></td>
+                    <td><%= role.rank %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+
+    </div>
+
     <%= render 'layouts/footer' %>
 </body>

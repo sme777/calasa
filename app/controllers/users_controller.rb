@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def index
-        @execs = User.all.select {|user| !user.role.nil?}
+        @execs = User.all.order(:role).select {|user| !user.role.nil?}
     end
 
     def profile
